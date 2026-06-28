@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "デジハク生成AIスクール",
+  title: "IgnAIte(イグナイト)",
   description: "未経験からAI活用のプロを目指す実践型スクール",
 };
 
