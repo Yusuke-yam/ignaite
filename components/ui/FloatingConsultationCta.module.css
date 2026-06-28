@@ -1,0 +1,57 @@
+.floatingCta {
+  background: transparent;
+  border: 3px solid #FFFFFF;
+  border-radius: 50%;
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  box-shadow: 0 10px 30px rgba(2, 39, 105, 0.28);
+  display: flex;
+  flex-direction: column;
+  height: 160px;
+  overflow: hidden;
+  padding: 0;
+  position: fixed;
+  right: 24px;
+  width: 160px;
+  z-index: 1000;
+}
+
+.top,
+.bottom {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  width: 100%;
+}
+
+.top {
+  background: #022769;
+  color: #FFFFFF;
+  font-size: 27px;
+  font-weight: 800;
+}
+
+.bottom {
+  background: #FFFFFF;
+  color: #022769;
+  font-size: 15px;
+  font-weight: 800;
+  gap: 3px;
+}
+
+@media (max-width: 809.98px) {
+  .floatingCta {
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    height: 118px;
+    right: 12px;
+    width: 118px;
+  }
+
+  .top {
+    font-size: 20px;
+  }
+
+  .bottom {
+    font-size: 11px;
+  }
+}

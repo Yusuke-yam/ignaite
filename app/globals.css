@@ -1,0 +1,97 @@
+:root {
+  --color-ink: #16181D;
+  --color-navy: #022769;
+  --color-red: #022769;
+  --color-red-dark: #022769;
+  --color-coral-soft: #FFFFFF;
+  --color-yellow: #FEE21C;
+  --color-gold: #E7A200;
+  --gradient-gold: linear-gradient(135deg, #E7A200 0%, #FEE21C 100%);
+  --content-width: 1000px;
+  --wide-width: 1232px;
+  --section-space: 120px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--color-ink);
+  background: #FFFFFF;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  overflow-x: hidden;
+}
+
+button,
+a {
+  color: inherit;
+  font: inherit;
+}
+
+button:disabled {
+  cursor: default;
+  opacity: 1;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+[data-safe-image-fallback] {
+  aspect-ratio: var(--safe-image-ratio);
+  background: #FFFFFF;
+  display: block;
+  height: auto;
+  max-width: 100%;
+  width: var(--safe-image-width);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@media (max-width: 809.98px) {
+  :root {
+    --section-space: 72px;
+  }
+}
+
+/* スクロールで視界に入ったらふわっと表示（戻った際も再適用） */
+/* reveal-enabled はJS有効時のみ付与されるため、JS無効でも内容は表示される */
+.reveal-enabled [data-lp-section] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.reveal-enabled [data-lp-section].in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-enabled [data-lp-section],
+  .reveal-enabled [data-lp-section].in-view {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
