@@ -798,7 +798,7 @@
 
 @media (max-width: 809.98px) {
   /* ロゴとハンバーガーを近づけたコンパクトな中央ピル（左右いっぱいに広げない） */
-  .header { gap: 36px; height: auto; min-height: 58px; padding: 8px 18px; top: 12px; transform: translateX(-50%); width: fit-content; max-width: calc(100% - 24px); justify-content: center; z-index: 1003; }
+  .header { gap: 18px; height: auto; min-height: 58px; padding: 8px 18px; top: 12px; transform: translateX(-50%); width: fit-content; max-width: calc(100% - 24px); justify-content: center; z-index: 1003; }
   .menuIcon { display: flex; }
   .headerLogo { font-size: 19px; }
   .headerLogo :is(img, [data-safe-image]) { height: 38px; width: 120px; }
@@ -809,7 +809,7 @@
   .heroBackdrop { inset: 0; }
   .heroText { left: 16px; padding: 8px; text-align: center; top: 78px; width: calc(100% - 32px); z-index: 5; }
   .heroBadges { justify-content: center; margin-top: 38px; margin-bottom: 10px; }
-  .heroBadges span { font-size: 10px; padding: 4px 12px; }
+  .heroBadges span { font-size: 9px; letter-spacing: 0.04em; padding: 4px 12px; white-space: nowrap; }
   .hero h1 { font-size: clamp(20px, 6.3vw, 24px); letter-spacing: -0.02em; line-height: 1.35; }
   .heroLead { font-size: 15px; margin: 14px auto 8px; max-width: 540px; text-align: center; width: auto; }
   .heroVisual { bottom: 20px; clip-path: none; border-radius: 18px; height: 290px; left: 16px; position: absolute; top: auto; width: calc(100% - 32px); }
@@ -916,8 +916,9 @@
   :global(#final-cta) .finalCta { min-height: 0; margin-top: 12px; }
   .ctaContent h2 { margin: 18px 0; }
   .ctaContent > p { margin: 1em 0; }
-  .ctaGrid { margin-top: 42px; }
-  .ctaGrid small { line-height: 1.7; margin: 10px 20px 0; white-space: normal; }
+  .ctaGrid { margin-top: 8px; }
+  .ctaGrid > div { padding: 0; }
+  .ctaGrid small { line-height: 1.7; margin: 12px 0 0; text-align: center; white-space: normal; }
   .finalCta h2 { font-size: 24px; }
   .ctaGrid { grid-template-columns: 1fr; }
   .footer { padding: 56px 16px 40px; }
@@ -959,7 +960,7 @@
   :global(#feature01) .featureCopy p,
   :global(#feature02) .featureCopy p { font-size: 15px; }
   /* BriefingCta: CTA文言を1行に収める */
-  .ctaGrid .whiteCta { font-size: 16px; white-space: nowrap; }
+  .ctaGrid .whiteCta { font-size: 15px; justify-content: center; white-space: nowrap; }
   /* 3ステップ(FlowSection)直下の最終CTAはモバイルでは非表示（PCは表示） */
   :global(#final-cta) .finalCta { display: none; }
 }
