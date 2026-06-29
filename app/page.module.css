@@ -609,6 +609,8 @@
   width: 100%;
 }
 @keyframes marquee { to { transform: translateX(-50%); } }
+/* モバイル用: 3D変換でトラックをGPU合成レイヤーに固定し、巨大レイヤーのタイル再描画(流れの途切れ)を防ぐ */
+@keyframes marqueeMobile { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
 
 .feature { background: #FFFFFF; padding: 70px 0 20px; }
 .feature > .sectionHeading { margin-bottom: 40px; }
@@ -847,9 +849,11 @@
   .aboutVisual { height: auto; margin-left: 0; max-width: 660px; transform: none; width: 100%; }
   .reviews { padding: 82px 0 95px; }
   .reviewsHeading { margin-bottom: 48px; }
-  .reviewMarquee { margin: 12px 0; }
-  /* 横長トラックをGPU合成レイヤー化し、スクロール中の空白タイル(流れの途切れ)を防いで連続再生する */
-  .marqueeTrack { will-change: transform; backface-visibility: hidden; }
+  /* 親をscaleで拡大すると巨大な横長レイヤーが再サンプリングされ流れが途切れるため、モバイルではscaleを解除 */
+  .reviewMarquee { margin: 12px 0; transform: none; }
+  .reviewMarquee:nth-of-type(2), .reviewMarquee:nth-of-type(3) { transform: none; }
+  /* 横長トラックを3D変換でGPU合成レイヤーに固定し、スクロール中の空白タイル(流れの途切れ)を防いで連続再生する */
+  .marqueeTrack { animation-name: marqueeMobile; transform: translate3d(0, 0, 0); will-change: transform; backface-visibility: hidden; }
   .reviewMarquee article { min-height: 132px; }
   .reviewsHeading h2 { font-size: 22px; }
   .reviewsHeading b { font-size: 32px; }
