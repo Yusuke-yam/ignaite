@@ -578,9 +578,10 @@
 .reviewsHeading span { font-size: 12px; font-weight: 700; }
 .reviewsHeading h2 { font-size: 28px; margin: 8px 0 0; }
 .reviewsHeading b { color: var(--color-red); font-size: 40px; }
-.reviewMarquee { margin: 6px 0; mask-image: linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%); overflow: hidden; transform: rotate(-1.5deg) scale(1.03); }
-.reviewMarquee:nth-of-type(2) { transform: rotate(1deg) scale(1.03); }
-.reviewMarquee:nth-of-type(3) { transform: rotate(-.6deg) scale(1.03); }
+/* カードは斜めではなく直線(水平)に流す（回転を除去） */
+.reviewMarquee { margin: 6px 0; mask-image: linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%); overflow: hidden; transform: scale(1.03); }
+.reviewMarquee:nth-of-type(2) { transform: scale(1.03); }
+.reviewMarquee:nth-of-type(3) { transform: scale(1.03); }
 .marqueeTrack { display: flex; width: max-content; animation: marquee 55s linear infinite; }
 .marqueeTrack[data-direction="reverse"] { animation-direction: reverse; }
 .marqueeTrack > div { display: flex; flex-shrink: 0; gap: 14px; padding-right: 14px; }
