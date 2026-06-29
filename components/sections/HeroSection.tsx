@@ -24,7 +24,7 @@ export function HeroSection() {
         </h1>
         <p className={styles.heroLead}>
           <span className={styles.heroLeadEmph}>認知科学コーチングとAI活用支援の2段階支援<span className={styles.heroLeadDe}>で</span></span><br className={styles.heroLeadBreak} />
-          あなたの理想のキャリアビジョンを明確し、<br />
+          あなたの理想のキャリアビジョンを明確にし、<br />
           それを現実にしていく実践型伴走プログラム。
         </p>
       </div>

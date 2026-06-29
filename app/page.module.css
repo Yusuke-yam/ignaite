@@ -847,6 +847,8 @@
   .reviews { padding: 82px 0 95px; }
   .reviewsHeading { margin-bottom: 48px; }
   .reviewMarquee { margin: 12px 0; }
+  /* 横長トラックをGPU合成レイヤー化し、スクロール中の空白タイル(流れの途切れ)を防いで連続再生する */
+  .marqueeTrack { will-change: transform; backface-visibility: hidden; }
   .reviewMarquee article { min-height: 132px; }
   .reviewsHeading h2 { font-size: 22px; }
   .reviewsHeading b { font-size: 32px; }
@@ -872,7 +874,8 @@
   .supportVisual { max-width: 500px; width: 100%; }
   .supportProgramOverview { border-radius: 40px; padding: 44px 18px 52px; width: calc(100% - 32px); }
   .supportProgramHeading { margin-bottom: 28px; }
-  .supportProgramHeading h3 { font-size: 24px; }
+  /* 「IgnAIteの支援プログラムの概要」を1行に収める最大サイズへ流動調整（実測: 14.42字分） */
+  .supportProgramHeading h3 { font-size: clamp(16px, calc((100vw - 74px) / 14.5), 24px); }
   .supportProgramHeading p { font-size: 14px; }
   .supportProgramCards { grid-template-columns: 1fr; }
   .supportProgramCards article { min-height: auto; padding: 28px 22px; }
