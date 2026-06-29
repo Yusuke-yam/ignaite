@@ -812,7 +812,8 @@
   .heroText { left: 16px; padding: 8px; text-align: center; top: 78px; width: calc(100% - 32px); z-index: 5; }
   .heroBadges { justify-content: center; margin-top: 38px; margin-bottom: 10px; }
   .heroBadges span { font-size: 9px; letter-spacing: 0.04em; padding: 4px 12px; white-space: nowrap; }
-  .hero h1 { font-size: clamp(20px, 6.3vw, 24px); letter-spacing: -0.02em; line-height: 1.35; }
+  /* 各行(white-space:nowrap)がコンテナ内に収まる最大サイズへ。はみ出すとtext-align:centerが効かず右へズレるため */
+  .hero h1 { font-size: clamp(16px, calc((100vw - 50px) / 15.8), 24px); letter-spacing: -0.02em; line-height: 1.35; }
   .heroLead { font-size: 15px; margin: 14px auto 8px; max-width: 540px; text-align: center; width: auto; }
   .heroVisual { bottom: 20px; clip-path: none; border-radius: 18px; height: 290px; left: 16px; position: absolute; top: auto; width: calc(100% - 32px); }
   .heroVisual :is(img, [data-safe-image]) { object-position: 65% 42%; }
