@@ -18,7 +18,7 @@ export function FeatureSection() {
         <div className={styles.featureNumber}><span>01</span><i /></div>
         <div className={styles.featureColumns}>
           <div className={styles.featureCopy}>
-            <h3>認定率5.7%のプロ認知科学コーチ兼<br />現役AIコンサルタントが伴走するから結果がでる。</h3>
+            <h3>認定率5.7%のプロ認知科学コーチ兼<br />現役AIコンサルタントが<br className={styles.feature01Break} />伴走するから結果がでる。</h3>
             <p>オンラインでの1on1セッションと、LINEによるチャットサポートにて<br />マンツーマンであなたの人生に伴走します。</p>
             <p>コーチングセッションであなたのキャリアビジョン/ゴールを明確にした後、<br />AI基礎教育からAI活用コンサルティングまで行い、<br /><span className={styles.goldText}>AIを活用してビジョンを現実に</span>していける設計になっています。</p>
             <p>キャリアアップ、キャリアチェンジ、副業スタート、個人事業拡大など<br /><span className={styles.goldText}>短期間で成果獲得を目指せます。</span></p>

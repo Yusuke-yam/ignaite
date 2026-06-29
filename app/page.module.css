@@ -623,6 +623,8 @@
 .featureCopy > p:first-child { color: var(--color-red); font-weight: 800; }
 .featureCopy h3 { font-size: 32px; line-height: 1.45; margin: 12px 0 28px; }
 :global(#feature01) .featureCopy h3 { font-size: 28px; margin-top: 0; text-decoration: underline; text-decoration-color: #FEE21C; text-decoration-thickness: 4px; text-underline-offset: 4px; text-decoration-skip-ink: none; }
+/* 理由01見出しの2つ目の改行はモバイルのみ表示（PCは従来の2行） */
+.feature01Break { display: none; }
 :global(#feature01) .featureCopy p { font-family: "Noto Sans CJK JP", "Noto Sans JP", sans-serif; font-size: 18px; font-weight: 700; }
 :global(#feature02) .featureCopy p { font-size: 20px; font-weight: 700; }
 .goldText { background: linear-gradient(transparent 60%, #FEE21C 60%); color: var(--color-ink); -webkit-box-decoration-break: clone; box-decoration-break: clone; padding: 0 .08em; }
@@ -947,16 +949,21 @@
   /* Problems: 指定の吹き出しを非表示、結論文を15px */
   .problemBubblesLeft .problemBubble:nth-child(1) { display: none; }
   .problemBubblesRight .problemBubble:nth-child(2) { display: none; }
-  .problemConclusionText { font-size: 15px; }
+  /* 指定の3行(<br>区切り)が各1行に収まる最大サイズへ流動調整（最長行≒26.2字分）*/
+  .problemConclusionText { font-size: clamp(11px, calc((100vw - 36px) / 26.8), 15px); }
   /* About: 本文・カード本文を15px、カードタイトルは24px */
   .aboutQuestion { font-size: 15px; }
   .aboutCopy p { font-size: 15px; }
-  .aboutReason b { font-size: 24px; }
+  /* 装飾円弧(::before/::after)が見出し文字の上に重ならないよう、文字を前面へ */
+  .aboutReason b { font-size: 24px; isolation: isolate; }
+  .aboutReason b::before, .aboutReason b::after { z-index: -1; }
   .aboutReasonPc { display: none; }
   .aboutReasonMb { display: block; }
   /* Feature: 見出しは指定の2行改行を保てる最大サイズに流動調整 / 本文15px */
   /* 2行目「現役AIコンサルタント〜」が折り返さない上限 ≒ コンテンツ幅÷23.7（実測） */
-  :global(#feature01) .featureCopy h3 { font-size: clamp(12px, calc((100vw - 64px) / 23.7), 16px); }
+  /* 指定の3行(認定率〜兼／現役〜が／伴走〜。)が各1行に収まる最大サイズ（最長=1行目≒16字分、上限20px）*/
+  :global(#feature01) .featureCopy h3 { font-size: clamp(14px, calc((100vw - 70px) / 16.4), 20px); }
+  .feature01Break { display: inline; }
   :global(#feature01) .featureCopy p,
   :global(#feature02) .featureCopy p { font-size: 15px; }
   /* BriefingCta: CTA文言を1行に収める */
